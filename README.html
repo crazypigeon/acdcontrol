@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- $Id: index.html,v 1.11 2007/04/05 13:37:13 faxik Exp $ -->
+<head>
+  <title>Apple Cinema Display Backlight Control for Linux</title>
+  <meta name="GENERATOR" content="Quanta Plus" />
+  <meta name="AUTHOR" content="Pavel Gurevich" />
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta name="keywords" content="Apple Cinema, Apple Display, brightness, backlight, control, Linux" />
+  <link rel="stylesheet" type="text/css" href="acdcontrol.css" />
+</head>
+<body>
+  <h1>Apple Cinema Display Control Utility for Linux</h1>
+  <a href="https://sourceforge.net/projects/acdcontrol/">SourceForge Project Page</a>
+  <hr />
+  <a href="#news">News</a><br />
+  <a href="#about">About</a><br />
+  <a href="#credits">Credits</a><br />
+  <a href="#documentation">Documentation</a> (
+
+  <a href="#compiling">Compiling</a> -- 
+  <a href="#usage">Running</a> -- 
+  <a href="#limitations">Known Limitations</a> -- 
+  <a href="#gui">GUI</a> -- 
+  <a href="#tips">Tips and Tricks</a>
+  )
+
+  <h2 id="news">News</h2>
+  
+  <dt class="newsdate">05.04.2007</dt>
+  <dd>Version 0.4 is out thanks to Arne Zellentin who sent me his patchset!.<br />
+  -Added option to change brightness relatively<br />
+  -Fixed magic '%d' appeared in output.</br>
+  -Updated help with usage examples
+  </dd>
+
+  <dt class="newsdate">16.03.2007</dt>
+  <dd>Some files in the tarball somehow had Windows encoding.<br />
+  A lot of thanks to Veit Wahlich for building <a href="http://naturidentisch.de/packages/fc6/acdcontrol/">Fedora Core 6 RPMs</a>. The other RPM-based systems may use source RPM by issuing the command <br />
+<code>rpmbuild --rebuild acdcontrol-0.3-1.cru.src.rpm</code><br />
+The pre-built packages are available from the download section, too.
+  </dd>
+
+  <dt class="newsdate">15.03.2007</dt>
+  <dd>Version 0.3 is out. <br />
+  This version supports 24" Apple Cinema Display (Thanks to Charles Lepple).<br />
+  Added copying and copyright info (GPL2 text). </dd>
+
+  <dt class="newsdate">09.09.2006</dt>
+  <dd>This post is mainly due to the kind contribution of Veit Wahlich (cru [ at ] ircnet.de).<br />
+30" Apple Cinema HD Display support was added. Veit also created SysV init-scripts for boot-time control of one or more Apple displays. Additionally, there are pre-built RPMs for Fedora Core and CentOS/RedHat Enterprise Linux. Currently, acdcontrol RPMs are available for Fedora Core 4 only,
+but work well on FC5. Native FC5 RPMs will soon be available from the site mentioned below.
+FC3 and CentOS4/RHEL4 RPMs will be built on request, FC6 RPMs right
+after release.<br />
+<b>Note:</b> I'm not a Fedora user, but I very appreciate this kind of contribution and want to publicly thank Veit for this. <br />
+ Please, visit <a href=http://naturidentisch.de/packages/fc4/acdcontrol">http://naturidentisch.de/packages/fc4/acdcontrol/</a> to grab source RPMs and pre-built packages. The packages will also be available from this site, soon. </dd>
+  <dd><b>I want to stress that acdcontrol is available under GPL v.2 license.</b></dd>
+
+  <dt class="newsdate">23.01.2005</dt>
+  <dd>Added multiple monitors and detection support, see the updated documentation.</dd>
+  <dd>Version 0.12 released.</dd>
+  <dd>GUI writing is started</dd>
+
+  <dt class="newsdate">27.12.2004</dt>
+  <dd>Confirmed to work with Samsung SyncMaster 757NF.
+  I'll continue to work on GUI to support all the standard
+  features. It will take some time, but come back from time 
+  to time. You can also bomb the forum :)
+  
+  To control the brightness of a <u>USB</u> display other than an 
+  Apple display, you need to use --force option. This option is available
+  in CVS version only. Today I'm too sleepy for a release, sorry.
+  </dd>
+  
+  <dt class="newsdate">24.12.2004</dt>
+  <dd>I've got an information how to take care of other model of monitors, 
+  I hope. If this works with other monitors, I'll release a new version, 
+  soon</dd>
+  
+  <dt class="newsdate">24.12.2004</dt>
+  <dd>Initial version 0.1 released.</dd>
+
+    
+  <h2 id="about">About</h2>
+  I've written this small utility to be able to control a wonderful Apple Cinema 
+  Display I've got recently. As there was no such software in public (at least,
+  I did not manage to find it), I have written one. Hope, it will help somebody
+  else. If you use this program, I'll appreciate if you'll 
+  <a href="https://sourceforge.net/forum/?group_id=126815">notify</a>
+  me; that will mean that this piece of software isn't totally useless :).
+  
+  <h2 id="credits">Credits</h2>
+  This program would never possibly come out without valuable help of 
+  <strong>Andre Beckedorf</strong>. Andre wrote a 
+  similar software for Windows. Please, visit 
+  <a href="http://metaexception.de/">http://metaexception.de/</a>.
+  <br />
+  Andre would like to thank to people that helped him to write his software
+  and I'd like to join him as they helped me, too:
+  <ul>
+    <li><strong>Dmitri Kitaynik</strong> (20" Display)</li>
+    <li><strong>Mark Wagner</strong> (15" and 17" Displays)</li>
+    <li><strong>Veit Wahlich</strong> (30" Display)</li>
+    <li><strong>Charles Lepple</strong> (24" Display)</li>
+    <li><strong>Arne Zellentin</strong> (Relative brightness change)</li>
+  </ul>
+  
+  <h2 id="documentation">Documentation</h2>
+  Whereas this documentation seems to be far from perfect, its should
+  enable you installing and running the program fast and without 
+  problems.<br />
+  
+  However if you need an assistance, please, 
+  <a href="https://sourceforge.net/forum/?group_id=126815">visit the forum</a> 
+  and ask your question there.
+  
+  <h3 id="compiling">Compiling</h3>
+  First, 
+  <a href="https://sourceforge.net/project/showfiles.php?group_id=126815">download</a> 
+  a tarball, save and unpack it. Then, change to directory you have unpacked files and type:<br />
+  <kbd>
+  make
+  </kbd><br />
+  You will get an executable named <code class="filename">acdcontrol</code> in
+  the current directory.
+
+<p>Alternatively, you can download source RPM file and issue<br />
+<code>rpmbuild --rebuild acdcontrol-&lt;version&gt;.src.rpm</code><br />
+if you use an RPM-based system.
+  <h3 id="usage">Usage</h3>
+  <code>./acdcontrol [--silent|-s] [--brief|-b] [--help|-h] [--about|-a] 
+    [--detect|-d] [--list-all|-l]
+    &lt;hid device(s)&gt; [&lt;brightness&gt;]
+  </code><br />
+  <h4>Parameters</h4>
+  <dl>
+    <dt class="option">--silent,-s</dt>
+    <dd> Suppress non-functional program output</dd>
+    
+    <dt id="opt-brief" class="option">--brief,-b</dt>
+    <dd>Print brightness value only when in query mode, 
+    otherwise ignored. </dd>
+    
+    <dt class="option">--help,-h</dt>
+    <dd>Show short help message and quit.</dd>
+    
+    <dt class="option">--about,-a</dt>
+    <dd>Show information about the program, some credits 
+    and thanks.</dd>
+
+  <dt class="option">--detect,-d</dt>
+  <dd>Run program in the detection mode. In this mode
+    no writes are performed to device so you can use any
+    number of files if you are not sure that your monitor(s)
+    are supported.</dd>
+  <dt class="option">--list-all,-l</dt>
+  <dd>Lists all "officially" supported monitors and quits.
+    If you do not see the device, this does not mean that it won't work
+    it simply means that I did not tested it on such a device. I'll appreiciate
+    if you submit your information in the <a href="http://sourceforge.net/forum/forum.php?thread_id=1215781&forum_id=431570">forum</a> for any display that works</dd>
+    
+    <dt class="param">hid device</dt>
+    <dd>device that represents your Apple Cinema display. It should be one
+    of <code class="filename">/dev/usb/hiddev<b>X</b></code> or 
+    <code class="filename">/dev/hiddev<b>X</b></code>. 
+    <h4>Note</h4> 
+      You must have write permissions to this device in order to control 
+      the display being <em>user</em>,
+      not <em>root</em>. If you have no such permissions, you can either grant
+      read/write permission to <em>world</em>:<br />
+      <kbd>chmod a+rw /dev/usb/hiddev<b>X</b></kbd><br />
+      or change an ownership:<br />
+      <kbd>chown &lt;<em>your user name</em>&gt;:users /dev/usb/hiddev<b>X</b></kbd><br />
+      under <em>root</em>. Or ask your Linux guru friend to do so ;)
+      
+    <h4>Note</h4>
+      It should be safe to run the program on other device than Apple Cinema/Studio display as
+      the program checks whether the device is Apple display and warns about it.
+    </dd>
+    <dt class="param">brightness</dt>
+    <dd>When this option is specified, the operation is <strong>set brightness</strong>,
+    otherwise, current brightness is retrieved. If brightness starts with '+' or '-', 
+    the current brightness is increased or decreased by that value. (<b>Note:</b> You have to place <code>--</code> before the negative value!) <br />
+    Brightness is a parameter ranged [0-255]. <br />
+    Note, that not every value toggles the backlight power; different Apple Display
+    models have different granularity. I use Apple Cinema 20" (clear plastic) and I'm 
+    feeling comfortable with the value of 160. I set 0, however, to see films in the 
+    darkness. See also: <a href="#opt-brief">--brief</a>
+    option and <a href="#limitations">Known Limitations</a> section.</dd>
+  </dl>
+
+  <h3 id="examples">Examples</h3>
+    In the following examples I assume that your HID device is /dev/hiddev0. You may 
+    have it as /dev/hiddevX or /dev/usb/hiddevX.
+    
+
+      
+    <dl>
+    <dt><code>acdcontrol</code><br />
+          <code>acdcontrol --help</code></dt>
+      <dd>Show long help message.</dd>
+    
+      <dt><code>acdcontrol --detect /dev/hiddev*</code></dt>
+      <dd>Perform detection, which HID device is actually your display to be controlled.</dd>
+    
+      <dt><code>acdcontrol /dev/hiddev0</code></dt>
+      <dd>Read current brightness parameter</dd>
+    
+      <code>acdcontrol /dev/hiddev0 160</code>
+      <dd>Set brightness to 160. Note, that brightness setting depends on your model. 
+        Generally, this parameter may get values in the range [0-255].</dd>
+    
+      <dt><code>acdcontrol /dev/hiddev0 +10</code></dt>
+      <dd>Increment current brightness by 10.</dd>
+    
+      <dt><code>acdcontrol /dev/hiddev0 -- -10</code></dt>
+      <dd>Decrement current brightness by 10. Please,note <code>--</code>!</dd>
+  <h3 id="limitations">Known Limitations</h3>
+  <ul>
+    <li>Currently, the display detection process is not fully automated as you need to specify an 
+      <abbr TITLE="Human Interface Device">HID</abbr> device(s) file name(s).
+    </li> 
+    <li>First time (after boot up) brightness is retrieved <em>incorrectly</em> (zero value), 
+      however, after it is set, the return value is correct. It shouldn't concern
+      you much as Cinema/Studio Display stores actual brightness settings between
+      the sessions.
+    </li>
+  </ul>
+  
+  <h3 id="gui"><abbr title="Graphical User Interface">GUI</abbr></h3>
+  I have also written a <abbr title="Graphical User Interface">GUI</abbr>
+  program for controlling a display; I'll make it available to public, soon.
+ 
+  <h3 id="tips">Tips and Tricks</h3>
+  After I've created this program, I've also created several <em>aliases</em>:
+  <code>nb</code> for normal brightness (160), <code>hb</code> for high 
+  brightness (255) and <code>lb</code> for low brightness (0).
+
+  <p>I've also created keyboard shortcuts in KDE (if you use a different DE,
+  you can surely do it in your way) as <kbd>&lt;Win&gt;+F12</kbd> for 
+  hight brightness, <kbd>&lt;Win&gt;+F11</kbd> and <kbd>&lt;Win&gt;+F10</kbd>
+  for normal and low brightness, accordingly. I've also created shortcut 
+  <kbd>&lt;Win&gt;+F9</kbd> to launch <code>sleep 3; xset dpms force off</code>
+  and by this turn off monitor (I actually have 2; it turns off both) <br/>
+
+  <p>If you use KDE, I think, acdcontrol can integrate into <code>klcddimmer</code> applet.
+  
+  <p><b>Note:</b> Enable DPMS in your X configuration file (xorg or XFree86) before using 
+  <kbd>xset ...</kbd> as otherwise you'll just have display blank but not off!
+
+  <center><a href="http://sourceforge.net"> 
+    <img src="http://sourceforge.net/sflogo.php?group_id=126815&amp;type=5" 
+    width="210" height="62" border="0" alt="SourceForge.net Logo" />
+  </a></center>
+  </body>
+</html>
